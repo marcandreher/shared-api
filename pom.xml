@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>de.marcandreher</groupId>
+  <artifactId>shared-api</artifactId>
+  <version>1.0</version>
+
+  <name>shared-api</name>
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+
+    <logback.version>1.5.18</logback.version>
+    <javalin.version>6.6.0</javalin.version>
+    <javalin.openapi.version>6.6.0</javalin.openapi.version>
+    <lombok.version>1.18.38</lombok.version>
+
+    <junit.version>4.11</junit.version>
+    <toml4j.version>0.7.2</toml4j.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.moandjiezana.toml</groupId>
+      <artifactId>toml4j</artifactId>
+      <version>${toml4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.javalin</groupId>
+      <artifactId>javalin-bundle</artifactId>
+      <version>${javalin.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.javalin.community.openapi</groupId>
+      <artifactId>javalin-openapi-plugin</artifactId>
+      <version>${javalin.openapi.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.javalin.community.openapi</groupId>
+      <artifactId>javalin-swagger-plugin</artifactId>
+      <version>${javalin.openapi.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.javalin.community.openapi</groupId>
+      <artifactId>javalin-redoc-plugin</artifactId>
+      <version>${javalin.openapi.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.10.1</version>
+          <configuration>
+            <annotationProcessorPaths>
+              <annotationProcessorPath>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+              </annotationProcessorPath>
+              <annotationProcessorPath>
+                <groupId>io.javalin.community.openapi</groupId>
+                <artifactId>openapi-annotation-processor</artifactId>
+                <version>${javalin.openapi.version}</version>
+              </annotationProcessorPath>
+            </annotationProcessorPaths>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
